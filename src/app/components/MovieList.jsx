@@ -4,7 +4,7 @@ const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${TMDB_API_TOKEN}`
+      Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`
     }
   };
   
@@ -14,7 +14,6 @@ async function fetchMovies() {
       throw new Error('Failed to fetch movies');
     }
     let data = await response.json();
-    console.log(data);
     return data.results;
 }
 
@@ -25,7 +24,7 @@ async function fetchMovies() {
     return (
       <div className="movie-list">
         {movies.map((movie) => (
-          <MovieCard key={movie.key} {...movie} />
+          <MovieCard key={movie.id} {...movie} />
         ))}
       </div>
     );
