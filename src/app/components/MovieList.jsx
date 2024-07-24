@@ -7,9 +7,9 @@ const options = {
       Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`
     }
   };
-  
-async function fetchMovies() { 
-  const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+
+async function fetchMovies() {
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`, options);
     if (!response.ok) {
       throw new Error('Failed to fetch movies');
     }

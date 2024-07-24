@@ -2,7 +2,7 @@ export default function Header() {
     return (
       <header>
         <div className="topbar">
-          <div className="logo">NotFlix</div>
+          <div className="logo">SMovies</div>
           <div className="navigation">
             <ol>
               <li>
