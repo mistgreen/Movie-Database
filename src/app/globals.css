@@ -9,14 +9,54 @@ ul {
   padding: 0;
 }
 
+main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 10px;
+}
+
 header {
   background-color: rgb(212, 50, 50);
   color: #fff;
   padding: 50px 30px 50px 30px;
+  
+}
+
+header .topbar {
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr; */
+  display: flex;
+  flex-direction: column;
 }
 
 header a {
   color: #fff;
+}
+
+.search-container {
+  text-align: center;
+  /* margin-top: 40px; */
+}
+
+.search {
+  background-color: #fff;
+  padding: 30px;
+  display: inline-block;
+}
+
+.search-form {
+  display: flex;
+  gap: 20px;
+}
+
+.left-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.library {
+  flex-grow: 1;
 }
 
 @media (min-width: 600px) {
@@ -35,71 +75,61 @@ header a {
   gap: 20px;
 }
 
-.topbar .profile svg {
+.right-bar .profile svg {
   width: 15px;
-  fill: #fff;
+  /* fill: #fff; */
 }
 
-.search-container {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.search {
-  background-color: #fff;
-  padding: 30px;
-  display: inline-block;
-}
-
-.search-form {
-  display: flex;
-  gap: 20px;
-}
-
-.event-list {
+.movie-list {
   margin: 30px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 26%;
   gap: 20px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
 }
 
-.event-card {
+/* .movie-card {
   border: 1px solid #aaa;
-  padding: 20px;
+  background-color: #999;
+  width: 100%;
+  border-radius: 25px;
+} */
+
+.movie-details {
+  position: relative;
 }
 
-@media (min-width: 600px) {
-  .event-card {
+/* .movie-text-box {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  backdrop-filter: blur(30px); 
+} */
+
+.movie-poster {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  /* padding: 5px; */
+}
+
+/* @media (min-width: 600px) {
+  .movie-card {
     display: flex;
     gap: 20px;
   }
-  .event-card .event-date {
+  .movie-card {
     text-align: center;
     width: 70px;
   }
-}
-
-.event-card .event-date span {
-  font-weight: bold;
-  font-size: 2rem;
-  display: block;
-}
-
-.event-card .event-details {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.event-card .event-details .event-name {
-  font-weight: bold;
-}
-
-.event-card .event-details .event-partner-site {
-  font-style: italic;
-  color: #999;
-}
+} */
 
 footer {
   background-color: rgb(51, 51, 51);
