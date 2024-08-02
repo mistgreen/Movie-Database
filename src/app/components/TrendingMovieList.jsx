@@ -20,7 +20,6 @@ async function fetchTrendingMovies() {
   
   export default async function TrendingMovieList() {
     let movies = await fetchTrendingMovies();
-  console.log(movies);
     return (
       <div className="movie-list">
         {movies.map((movie) => (

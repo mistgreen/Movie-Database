@@ -11,7 +11,6 @@ export default async function MovieCard(props) {
     }
   };
 
-  // Fetch movie poster on the server
   const posterPath = props.poster_path ? `https://image.tmdb.org/t/p/w500/${props.poster_path}` : null;
 
   return (
@@ -25,13 +24,10 @@ export default async function MovieCard(props) {
           <li className="movie-name">{props.title}</li>
           <li className="movie-release-year">{props.release_date}</li>
           <li className="movie-imdb-rating">IMDB Rating: {props.imdbRating}</li>
-          <li className="movie-add-favourite">Add to faves</li>
-          <li className="movie-dislike-button">Dislike</li>
-          <li className="movie-share-button">Share</li>
         </div>
       </ul>
       </Link>
-      <LikeButton />
+      <LikeButton {...props} />
       <ShareButton />
     </div>
   );

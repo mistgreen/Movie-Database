@@ -1,7 +1,9 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Library from "./components/Library";
 import MovieList from "./components/MovieList";
 import Link from "next/link";
+import Search from "./components/Search";
 
 export default function Home() {
 
@@ -9,9 +11,8 @@ export default function Home() {
   <main className="main-page">
     <div className="left-bar">
       <Header/>
-      <div className="library">
-        <p>Library Placeholder</p>
-      </div>
+      <Search/>
+      <Library/>
       <Footer/>
     </div>
     <div className="right-bar">

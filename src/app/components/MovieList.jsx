@@ -34,7 +34,6 @@ async function fetchImdbId(movieId) {
     throw new Error('Failed to fetch movie details');
   }
 const data = await response.json();
-console.log(data.imdb_id);
 return data.imdb_id;
 
 }
@@ -49,15 +48,10 @@ async function fetchImdbRating(imdbId){
     throw new Error('Failed to fetch imdb details');
   }
 const data = await response.json();
-console.log(data);
 return data.imdbRating;
 }
 
-
-
-
-
-    
+ 
 export default async function MovieList(urlPath) {
     let movies = await fetchMovies(urlPath);
     
