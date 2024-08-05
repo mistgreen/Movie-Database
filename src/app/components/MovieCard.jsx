@@ -1,7 +1,4 @@
-import { useContext } from "react";
-import { FavouritesContext } from "../contexts/FavouritesContext";
 import LikeButton from "./LikeButton";
-import ShareButton from "./ShareButton";
 import Link from "next/link";
 
 export default function MovieCard(props) {
@@ -9,7 +6,7 @@ export default function MovieCard(props) {
 
   return (
     <div key={props.id} className="movie-card">
-      <Link href="/movie">
+      <Link href={`/${props.id}`}>
       <ul className="movie-details">
         {posterPath && <li>
           <img className="movie-poster" src={posterPath} alt={`${props.title} poster`} />
@@ -22,7 +19,6 @@ export default function MovieCard(props) {
       </ul>
       </Link>
       <LikeButton {...props} />
-      <ShareButton />
     </div>
   );
 }

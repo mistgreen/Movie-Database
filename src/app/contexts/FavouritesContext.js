@@ -11,7 +11,6 @@ export default function FavouritesContextProvider({children}) {
           const localData = localStorage.getItem('favouriteMovies');
           return localData ? JSON.parse(localData) : [];
         }
-        // return [];
       });
 
     useEffect(() => {
@@ -24,11 +23,3 @@ export default function FavouritesContextProvider({children}) {
         </FavouritesContext.Provider>
     )
 }
-
-    // function addFavouriteMovie(movie) {
-    //     setFavouriteMovies([...favouriteMovies, {movie}])
-    // };
-
-    // function removeFavouriteMovie(movieId) {
-    //     setFavouriteMovies(favouriteMovies.filter(movie => movie.id !== movieId))
-    // };

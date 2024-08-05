@@ -1,5 +1,4 @@
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Library from "./components/Library";
 import MovieList from "./components/MovieList";
 import Link from "next/link";
@@ -11,7 +10,6 @@ export default function Home() {
     <FavouritesContextProvider>
       <main className="main-page">
         <div className="left-bar">
-          <Header/>
           <Search/>
           <Library/>
           <Footer/>

@@ -1,13 +1,13 @@
 import React from 'react';
 import MovieCard from './MovieCard';
 
-export default function FavouriteMovieList ({ favourites }) {
+export default function FavouriteMovieList ({ favourites = [] }) {
 
   return (
     <div className='movie-list'>
       {favourites.length ? (
         
-        favourites.map(({movie}, index) => (
+        favourites.map(({movie}) => (
           
           <MovieCard className="movie-card" key={movie.id} {...movie}/>
         ))
