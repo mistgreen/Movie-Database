@@ -1,16 +1,10 @@
+import { useContext } from "react";
+import { FavouritesContext } from "../contexts/FavouritesContext";
 import LikeButton from "./LikeButton";
 import ShareButton from "./ShareButton";
 import Link from "next/link";
 
-export default async function MovieCard(props) {
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${process.env.TMDB_ACCESS_TOKEN}`
-    }
-  };
-
+export default function MovieCard(props) {
   const posterPath = props.poster_path ? `https://image.tmdb.org/t/p/w500/${props.poster_path}` : null;
 
   return (
