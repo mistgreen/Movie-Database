@@ -75,7 +75,7 @@ header a {
   gap: 20px;
 }
 
-.right-bar .profile svg {
+.profile svg {
   width: 15px;
   /* fill: #fff; */
 }
@@ -84,18 +84,18 @@ header a {
   margin: 30px;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 26%;
+  /* grid-auto-columns: 26%; */
   gap: 20px;
   overflow-x: auto;
-  overscroll-behavior-inline: contain;
+  /* overscroll-behavior-inline: contain; */
 }
 
-/* .movie-card {
-  border: 1px solid #aaa;
-  background-color: #999;
+.movie-card {
   width: 100%;
   border-radius: 25px;
-} */
+  max-height: 250px;
+  max-width: 150px;
+}
 
 .movie-details {
   position: relative;
@@ -154,3 +154,17 @@ footer h4 {
 footer a {
   color: #fff;
 }
+
+.genre-pill {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+

@@ -1,4 +1,3 @@
-import React from 'react';
 import MovieCard from './MovieCard';
 
 export default function FavouriteMovieList ({ favourites = [] }) {
@@ -17,4 +16,3 @@ export default function FavouriteMovieList ({ favourites = [] }) {
     </div>
   );
 };
-
