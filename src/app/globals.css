@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: sans-serif;
 }
 
 ol,
@@ -78,6 +79,11 @@ header a {
 .profile svg {
   width: 15px;
   /* fill: #fff; */
+}
+
+.search svg {
+  width: 15px;
+  fill: #000;
 }
 
 .movie-list {

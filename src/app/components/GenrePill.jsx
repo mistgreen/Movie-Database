@@ -1,16 +1,25 @@
 'use client';
 
-export default function GenrePill(props) {
+import { useContext } from "react";
+import { GenreFilterContext } from "../contexts/GenreFilterContext";
 
-    const handleClick = () => {
-        console.log("you clicked " + props.name);
-        
-          };
+export default function GenrePill(props) {
+  const {genreFilter, dispatch} = useContext(GenreFilterContext);
+  const genreSelected = Array.isArray(genreFilter) ? genreFilter.some(genre => genre.id === props.id) : false;
+  
+  const handleClick = () => {
+    console.log("you clicked " + props.name);
+    if (genreSelected){
+      dispatch({type: 'REMOVE_GENRE', id: props.id})
+    } else {
+      dispatch({type: 'ADD_GENRE', id: props.id})
+    }
+  };
         
 
   return (
     <div key={props.id} className="genre-pill" onClick={handleClick}>
-        <p>{props.name}</p>
+      {genreSelected ? `${props.name} selected` : `${props.name}`}
     </div>
   );
 }
