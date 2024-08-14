@@ -1,4 +1,3 @@
-import GenreFilterContextProvider from "../contexts/GenreFilterContext";
 import GenrePill from "./GenrePill";
 
 const options = {
@@ -22,12 +21,11 @@ export default async function Filter() {
   const genres = await fetchGenres(); 
 
   return (
-    <GenreFilterContextProvider>
+
       <div className="genre-list">
         {genres.map((genre) => (
           <GenrePill className="genre-pill" key={genre.id} {...genre} />
         ))}
       </div>
-    </GenreFilterContextProvider>
   );
 }

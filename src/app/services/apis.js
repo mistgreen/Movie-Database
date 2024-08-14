@@ -7,13 +7,17 @@ const options = {
   };
 
 async function fetchMovies(urlPath) {
-  console.log(urlPath.urlPath);
+  console.log(urlPath);
   
 
   if (!urlPath) {
     throw new Error('URL path is required to fetch movies');
   }
-  let url = `https://api.themoviedb.org/3/${urlPath.urlPath}`;
+
+    let url = `https://api.themoviedb.org/3/${urlPath.urlPath}`;
+
+  
+  console.log(url);
   let response = await fetch(url, options);
 
     if (!response.ok) {
@@ -39,19 +43,18 @@ async function fetchImdbId(movieId) {
 }
 
 async function fetchImdbRating(imdbId){
-  // if (!imdbId) {
-  //   throw new Error('imdbId is required');
-  // }
+  if (!imdbId) {
+    throw new Error('imdbId is required');
+  }
 
-  // let omdbUrl = `http://www.omdbapi.com/?i=${imdbId}&apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}`;
-  // let response = await fetch(omdbUrl, options);
+  let omdbUrl = `https://www.omdbapi.com/?i=${imdbId}&apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}`;
+  let response = await fetch(omdbUrl);
 
-  // if (!response.ok) {
-  //   throw new Error('Failed to fetch imdb details');
-  // }
-  // const data = await response.json();
-  // return data.imdbRating;
-  return 1;
+  if (!response.ok) {
+    throw new Error('Failed to fetch imdb details');
+  }
+  const data = await response.json();
+  return data.imdbRating;
 }
 
 export { fetchMovies, fetchImdbId, fetchImdbRating}

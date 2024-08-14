@@ -1,11 +1,13 @@
 import Link from "next/link";
 import NavBar from "./NavBar";
+import Search from "./Search";
 
 export default function Header() {
     return (
       <header>
         <div className="topbar">
           <Link href="/" className="logo">Movify</Link> 
+          <Search/>
           <NavBar/>       
           <Link href="/profile" className="profile">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

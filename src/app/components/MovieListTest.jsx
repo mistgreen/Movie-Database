@@ -1,24 +1,24 @@
 'use client'
 
-import React, { useState, useEffect, useContext, useReducer } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import MovieCardTest from "./MovieCardTest";
 import { fetchMovies, fetchImdbId, fetchImdbRating } from "../services/apis";
-import { GenreFilterContext } from "../contexts/GenreFilterContext";
-import { genreFilterReducer } from "../reducers/genreFilterReducer";
+import GenreFilterContextProvider, { GenreFilterContext } from "../contexts/GenreFilterContext";
 
 export default function MovieListTest(urlPath) {
-  const { genreFilter } = useContext(GenreFilterContext);
-  const [ genreState, genreDispatch] = useReducer(genreFilterReducer);
+  const {genreFilter} = useContext(GenreFilterContext);
   const [moviesWithRatings, setMoviesWithRatings] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const genreIds = genreFilter.map((genre) => genre.id).join(',');
 
   useEffect(() => {
     const fetchAndSetMovies = async () => {
-      console.log(genreFilter);
 
-      let fetchUrl = genreFilter.length ? `${urlPath}/with_genres=${genreFilter}` 
-      : urlPath;
+      const fetchUrl = genreFilter.length
+        ? { urlPath: `${urlPath.urlPath}&with_genres=${genreIds}` }
+        : urlPath ;
 
-      console.log('Final URL Path:', fetchUrl);
       let movies = await fetchMovies(fetchUrl);
 
       const moviesWithRatings = await Promise.all(
@@ -28,16 +28,19 @@ export default function MovieListTest(urlPath) {
           return { ...movie, imdbRating };
         })
       );
-
+      setIsLoading(false);
       setMoviesWithRatings(moviesWithRatings);
     };
 
     fetchAndSetMovies();
-  }, [genreState, urlPath]);
+  }, [genreFilter]);
 
   return (
     <div>
-      <MovieCardTest movies={moviesWithRatings} />
+      <GenreFilterContextProvider>
+        {isLoading && <div>Loading...</div>}
+        <MovieCardTest movies={moviesWithRatings} />
+      </GenreFilterContextProvider>
     </div>
   );
 }

@@ -1,5 +1,4 @@
 export const genreFilterReducer = (state, action) => {
-
     switch (action.type) {
       case 'ADD_GENRE':
         return [...state, {id: action.id}]

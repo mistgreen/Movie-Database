@@ -15,7 +15,7 @@ async function fetchMovie(id) {
   
   let response = await fetch(url, options);
     if (!response.ok) {
-      throw new Error('Failed to fetch movies');
+      throw new Error('Failed to fetch movie details');
     }
   const data = await response.json();
   return data;
@@ -26,7 +26,7 @@ async function fetchWatchProviders(id) {
 
   let response = await fetch(url, options);
   if (!response.ok) {
-    throw new Error('Failed to fetch movies');
+    throw new Error('Failed to fetch watch providers');
   }
   const data = await response.json();
   return data.results.GB;
@@ -37,7 +37,7 @@ async function fetchRecommendations(id) {
 
   let response = await fetch(url, options);
   if (!response.ok) {
-    throw new Error('Failed to fetch movies');
+    throw new Error('Failed to fetch recommendations');
   }
   const data = await response.json();
   return data.results;
