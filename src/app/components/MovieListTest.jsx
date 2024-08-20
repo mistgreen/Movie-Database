@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useState, useEffect, useContext } from "react";
 import MovieCardTest from "./MovieCardTest";
 import { fetchMovies, fetchImdbId, fetchImdbRating } from "../services/apis";
@@ -38,8 +37,10 @@ export default function MovieListTest(urlPath) {
   return (
     <div>
       <GenreFilterContextProvider>
+      <div>
         {isLoading && <div>Loading...</div>}
         <MovieCardTest movies={moviesWithRatings} />
+        </div>
       </GenreFilterContextProvider>
     </div>
   );

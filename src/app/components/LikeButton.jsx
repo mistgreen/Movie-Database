@@ -19,7 +19,7 @@ export default function LikeButton(movie) {
   
     return (
       <button onClick={handleClick}>
-        {isFavourite ? 'Remove from Favourites' : 'Add to Favourites'}
+        {isFavourite ? 'Remove from Watchlist' : 'Add to Watchlist'}
       </button>
     );
 }

@@ -15,7 +15,7 @@ export default async function MovieList(urlPath) {
   
     return (
       <div>
-        <div className="movie-list">
+        <div className="test">
           {moviesWithRatings.map((movie) => (
             <MovieCard className="movie-card" key={movie.id} {...movie} />
           ))}

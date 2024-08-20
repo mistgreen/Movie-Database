@@ -1,13 +1,13 @@
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Library from "../components/Library";
 import FavouritesContextProvider from "../contexts/FavouritesContext";
 
-export default function Profile() {
-
+export default function Watchlist() {
     return (
       <FavouritesContextProvider>
         <div>
-          <h2> Your Profile </h2>
+          <Header/>
           <Library/>
           <Footer/>
         </div>

@@ -9,7 +9,7 @@ export default function Library() {
 
   return (
     <div>
-      <h2>Your Favourites</h2>
+      <h2>Your Watchlist</h2>
       <FavouriteMovieList favourites={favouriteMovies} />
     </div>
   );
