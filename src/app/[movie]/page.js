@@ -21,11 +21,12 @@ export default async function Movie({params}) {
         <Header/>
       </div>
       <div>
+        {posterPath && 
+          <img className="movie-poster" src={backdropPath} alt={`${movie.title} poster`} />
+        }
         <h1>{movie.title}</h1>
         <p>{movie.overview}</p>
-        {posterPath && <li>
-          <img className="movie-poster" src={backdropPath} alt={`${movie.title} poster`} />
-        </li>}
+        
       </div>
 
         <div>

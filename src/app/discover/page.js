@@ -13,14 +13,14 @@ export default function Trending() {
         <main className="movie-page">
           <Header/>
           <div className="title">
-            <h2>Trending Movies</h2>
+            <h2>Discover Movies</h2>
           </div>
           <div className="movie-content">
             <div className="left-bar">
               <Filter/>
             </div>
             <div className="right-bar">
-              <MovieListTest urlPath ={'trending/movie/day?language=en-US' }/>
+              <MovieListTest urlPath ={'discover/movie?language=en-US&region=GB' }/>
                 <div>
                   <LoadMoreButton/>
                 </div>

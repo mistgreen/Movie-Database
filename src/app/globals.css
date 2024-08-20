@@ -118,7 +118,7 @@ h2 {
   padding-left: 40px;
 }
 
-.movie-list {
+.home-content .movie-list {
   margin: 10px 20px;
   display: grid;
   grid-auto-flow: column;
@@ -183,7 +183,9 @@ footer h4 {
   background-color: #ddd;
   border: none;
   color: black;
-  padding: 10px 20px;
+  padding: 5px 10px;
+  height: 25px;
+  font-size: small;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -194,16 +196,26 @@ footer h4 {
 
 .movie-content {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: auto auto;
 }
 
 .left-bar {
   grid-column: 1 / span 1;
   display: flex;
   flex-direction: column;
+  min-width: 200px;
+  max-width: 250px;
+  padding: 15px;
 }
 
 .right-bar {
   grid-column: 2 / span 1;
+}
+
+.right-bar .movie-list {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 

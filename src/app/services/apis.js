@@ -7,22 +7,16 @@ const options = {
   };
 
 async function fetchMovies(urlPath) {
-  console.log(urlPath);
-  
-
   if (!urlPath) {
     throw new Error('URL path is required to fetch movies');
   }
 
-    let url = `https://api.themoviedb.org/3/${urlPath.urlPath}`;
-
-  
-  console.log(url);
+  let url = `https://api.themoviedb.org/3/${urlPath.urlPath}`;
   let response = await fetch(url, options);
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch movies first call');
-    }
+  if (!response.ok) {
+    throw new Error('Failed to fetch movies first call');
+  }
   const data = await response.json();
   return data.results;
 };
@@ -39,6 +33,7 @@ async function fetchImdbId(movieId) {
     throw new Error('Failed to fetch movie details');
   }
   const data = await response.json();
+  console.log(movieId, data.imdb_id);
   return data.imdb_id;
 }
 

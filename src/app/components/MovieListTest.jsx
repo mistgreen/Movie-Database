@@ -19,7 +19,7 @@ export default function MovieListTest(urlPath) {
         : urlPath ;
 
       let movies = await fetchMovies(fetchUrl);
-
+      console.log(movies);
       const moviesWithRatings = await Promise.all(
         movies.map(async (movie) => {
           const imdbId = await fetchImdbId(movie.id);
@@ -35,13 +35,13 @@ export default function MovieListTest(urlPath) {
   }, [genreFilter]);
 
   return (
-    <div>
-      <GenreFilterContextProvider>
-      <div>
+    <div className="movie-list">
+      {/* <GenreFilterContextProvider> */}
+
         {isLoading && <div>Loading...</div>}
         <MovieCardTest movies={moviesWithRatings} />
-        </div>
-      </GenreFilterContextProvider>
+
+      {/* </GenreFilterContextProvider> */}
     </div>
   );
 }
