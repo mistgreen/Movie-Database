@@ -4,6 +4,7 @@ import MovieCard from "../components/MovieCard";
 import FavouritesContextProvider from "../contexts/FavouritesContext";
 
 import {fetchMovie, fetchRecommendations} from "../services/movieApis"; 
+import LikeButton from "../components/LikeButton";
 
 export default async function Movie({params}) {
   const id  = params.movie;
@@ -26,10 +27,10 @@ export default async function Movie({params}) {
         }
         <h1>{movie.title}</h1>
         <p>{movie.overview}</p>
-        
+        <LikeButton {...movie}/>
       </div>
 
-        <div>
+        <div className="home-content">
           <h3>If you like {movie.title}, you might like...</h3>
           <div className='movie-list'>
             {recommendedMovies && recommendedMovies.length > 0 ? (

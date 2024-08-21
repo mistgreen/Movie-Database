@@ -9,13 +9,15 @@ export default function Header() {
           <div className="logo">
             <Link href="/" className="logo">MOVIES</Link> 
           </div>
-          <div className="search-wrapper">
+          <div className="nav-bar-wrapper">
+          <NavBar/> 
+          </div>
+          <div className="logo"></div>
+          
+        </div>
+        <div className="search-wrapper">
             <Search/>
           </div> 
-        </div>
-        <div className="nav-bar-wrapper">
-          <NavBar/> 
-        </div>
       </header>
     );
   }

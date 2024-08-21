@@ -19,10 +19,13 @@ export default function MovieCard(props) {
         {posterPath && <li>
           <img className="movie-poster" src={posterPath} alt={`${props.title} poster`} />
         </li>}
-        <div className="movie-text-box">
+        <div className="movie-background-box">
+          <div className="movie-text-box">
           <li className="movie-name">{props.title}</li>
           <li className="movie-release-year">{formatDate(props.release_date)}</li>
           <li className="movie-imdb-rating">IMDB Score: {props.imdbRating}</li>
+        </div>
+        
         </div>
       </ul>
       </Link>

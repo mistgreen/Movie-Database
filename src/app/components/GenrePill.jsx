@@ -18,7 +18,9 @@ export default function GenrePill(props) {
         
 
   return (
-    <div key={props.id} className="genre-pill" onClick={handleClick}>
+    <div key={props.id}
+    className={`genre-pill ${genreSelected ? 'selected' : ''}`}
+    onClick={handleClick}>
       {genreSelected ? `${props.name} selected` : `${props.name}`}
     </div>
   );

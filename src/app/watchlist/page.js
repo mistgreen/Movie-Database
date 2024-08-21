@@ -6,10 +6,15 @@ import FavouritesContextProvider from "../contexts/FavouritesContext";
 export default function Watchlist() {
     return (
       <FavouritesContextProvider>
-        <div>
+        <div className="main-page">
           <Header/>
-          <Library/>
-          <Footer/>
+          <div className="right-bar">
+            <Library/>
+          </div>
+          <div className="watchlist-footer">
+            <Footer/>
+          </div>
+          
         </div>
       </FavouritesContextProvider>
     );

@@ -22,9 +22,14 @@ export default function MovieListTest(urlPath) {
       console.log(movies);
       const moviesWithRatings = await Promise.all(
         movies.map(async (movie) => {
-          const imdbId = await fetchImdbId(movie.id);
-          const imdbRating = await fetchImdbRating(imdbId);
-          return { ...movie, imdbRating };
+          try {
+            const imdbId = await fetchImdbId(movie.id);
+            const imdbRating = await fetchImdbRating(imdbId);
+            return { ...movie, imdbRating };
+          } catch (error) {
+            console.error("Error fetching IMDb data:", error);
+            return { ...movie, imdbRating: "N/A" };
+          }
         })
       );
       setIsLoading(false);
