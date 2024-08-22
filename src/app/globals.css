@@ -4,7 +4,6 @@
 
 body {
   margin: 0;
-  font-family: sans-serif;
   background: linear-gradient(135deg, hsla(0, 0%, 12%, 1) 50%, hsla(0, 0%, 40%, 1) 100%);
   color: #fff;
   min-height: 100vh;
@@ -36,18 +35,13 @@ a:link {
 
 header {
   color: #fff;
-}
 
-header {
-  padding: 20px;
 }
 
 .topbar {
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  padding: 10px 0;
 }
 
 .logo {
@@ -74,11 +68,23 @@ a {
   text-decoration: none;
 }
 
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
 .nav-container a {
   text-decoration: none;
-  color: #fff;
+  color: #9f9e9e;
   font-weight: 700;
   position: relative;
+}
+
+.nav-container a.active {
+  color: #fff; /* Highlight active link */
+  font-weight: bold;
 }
 
 .nav-container a::before {
@@ -114,9 +120,19 @@ a {
   fill: #000;
 }
 
+.movie-card-wrapper {
+  position: relative;
+}
+
+.bookmark-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .like-button svg {
   width: 15px;
-  fill: #000;
+  fill: #fff;
 }
 
 .search input {
@@ -146,13 +162,7 @@ a {
   background-color: #1E1E1E;
 }
 
-.nav-container {
-  padding-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 30px;
-}
+
 
 h2 {
   padding-left: 40px;
@@ -169,11 +179,6 @@ h2 {
   padding-bottom: 50px;
 }
 
-.home-content.movie-list::-webkit-scrollbar { /* WebKit */
-  width: 0;
-  height: 0;
-}
-
 .movie-card {
   width: 100%;
   border-radius: 25px;
@@ -181,7 +186,6 @@ h2 {
   max-height: 250px;
   min-width: 200px;
   max-width: 200px;
-  background-color: #1E1E1E;
   cursor: pointer;
 }
 
@@ -205,16 +209,22 @@ h2 {
   position: absolute;
   top: 100%;
   transform: translate(0, -100%);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   font-size: 14px;
   width: 100%;
+
+}
+
+.movie-text-box {
+  position: relative;
   padding: 10px;
 }
 
-.movie-text-box .li {
+.movie-text-box a .li {
   color: #fff;
   opacity: 1;
+  padding: 10px;
 }
 
 
@@ -286,6 +296,8 @@ footer h4 {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0px 50px;
+  overflow-y: auto;
+  max-height: 600px;
 }
 
 .right-bar .movie-card {
@@ -293,25 +305,59 @@ footer h4 {
 }
 
 .like-button {
-  background-color: #ddd;
-  border: none;
-  color: black;
-  padding: 5px 10px;
+  background-color: transparent;
   height: auto;
   font-size: small;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
   cursor: pointer;
-  border-radius: 16px;
+  border: none;
 }
 
 .like-button.favourited {
-  background-color: red; /* Green background for selected state */
-  color: white; /* White text color for selected state */
+
+  color: white; 
+}
+
+.watchlist-main-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .watchlist-footer {
-  margin-bottom: 0;
+  margin-top: auto;
+}
+
+.movie-details-wrapper {
+  display: flex;
+}
+
+
+.movie-details-page .home-content {
+  padding-top: 50px;
+}
+
+.movie-details-text-wrapper {
+  position: relative;
+}
+
+.movie-details-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-information {
+  display: flex;
+}
+
+.movie-information h3 {
+  padding: 0 30px;
+}
+
+.movie-information-overview {
+  flex-direction: column;
+  padding-left: 30px;
+}
+
+.tmdb-logo {
+  padding: 10px;
 }

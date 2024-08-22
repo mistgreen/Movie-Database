@@ -1,7 +1,6 @@
 import Footer from "../components/Footer";
 import FavouritesContextProvider from "../contexts/FavouritesContext";
 import Filter from "../components/Filter";
-import LoadMoreButton from "../components/LoadMoreButton";
 import GenreFilterContextProvider from "../contexts/GenreFilterContext";
 import Header from "../components/Header";
 import MovieListTest from "../components/MovieListTest";
@@ -21,9 +20,6 @@ export default function Trending() {
             </div>
             <div className="right-bar">
               <MovieListTest urlPath ={'discover/movie?language=en-US&region=GB' }/>
-                <div>
-                  <LoadMoreButton/>
-                </div>
             </div>
           </div>
           <Footer/>

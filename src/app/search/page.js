@@ -14,7 +14,7 @@ export default function SearchResults() {
   const query = searchParams.get('query'); 
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(true); // Add a loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   const options = {
     method: 'GET',
@@ -27,9 +27,7 @@ export default function SearchResults() {
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
-        setIsLoading(true); // Start loading
-
-        // Fetch search results
+        setIsLoading(true); 
         const fetchData = async (query) => {
           try {
             const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options);
@@ -86,9 +84,9 @@ export default function SearchResults() {
         <main className="search-page">
           <Header/>
           <h2>Search Results</h2>
-          {isLoading && <p>Loading...</p>} {/* Show loading state */}
-          {error && <p>{error}</p>} {/* Show error message */}
-          {!isLoading && !error && searchResults.length === 0 && <p>No results found.</p>} {/* Handle no results */}
+          {isLoading && <p>Loading...</p>} 
+          {error && <p>{error}</p>} 
+          {!isLoading && !error && searchResults.length === 0 && <p>No results found.</p>} 
           <div className="right-bar">
             <MovieCardTest movies={searchResults} />
           </div>
