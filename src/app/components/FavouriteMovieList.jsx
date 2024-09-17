@@ -3,7 +3,7 @@ import MovieCard from './MovieCard';
 export default function FavouriteMovieList ({ favourites = [] }) {
 
   return (
-    <div className='movie-list'>
+    <div className='inner-movie-list'>
       {favourites.length ? (
         
         favourites.map(({movie}) => (

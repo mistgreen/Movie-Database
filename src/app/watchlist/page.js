@@ -6,7 +6,7 @@ import FavouritesContextProvider from "../contexts/FavouritesContext";
 export default function Watchlist() {
     return (
       <FavouritesContextProvider>
-        <div className="watchlist-main-page">
+        <div className="home-content">
           <div className="watchlist-header">
             <Header/>
           </div>

@@ -78,7 +78,7 @@ export default async function Movie({params}) {
 
         <div className="home-content">
           <h3>If you like {movie.title}, you might like...</h3>
-          <div className='movie-list'>
+          <div className='inner-movie-list'>
             {recommendedMoviesWithRatings && recommendedMoviesWithRatings.length > 0 ? (
               recommendedMoviesWithRatings.map((movie) => (
                 <MovieCard className="movie-card" key={movie.id} {...movie} />

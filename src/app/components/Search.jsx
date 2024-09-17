@@ -63,6 +63,9 @@ export default function Search() {
             aria-label="Search"
             onChange={onChange} 
             value={value} 
+
+
+            
           />
           <Link href={`/search?query=${value}`}>
             <button>
@@ -74,7 +77,7 @@ export default function Search() {
         </div>
 
         {value.length > 0 && (
-          <div className="drop-down" style={{ border: '1px solid #ccc', marginTop: '5px', padding: '10px' }}>
+          <div className="drop-down">
             {isLoading ? (
               <div>Loading...</div>
             ) : data.length > 0 ? (

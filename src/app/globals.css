@@ -48,7 +48,6 @@ header {
   font-size: 34px;
   color: white;
   flex: 1;
-  padding: 20px
 }
 
 .search-wrapper {
@@ -159,22 +158,23 @@ a {
   min-width: 160px;
   padding: 12px 16px;
   z-index: 1;
+  border: none;
+  margin-top: 5px;
   background-color: #1E1E1E;
 }
 
 
 
 h2 {
-  padding-left: 40px;
+  padding-left: 20px;
 }
 
-.home-content .movie-list {
+.home-content .inner-movie-list {
   margin: 10px 20px;
   display: grid;
   grid-auto-flow: column;
   gap: 20px;
   max-width: 100%;
-  min-height: 350px;
   overflow-x: auto;
   padding-bottom: 50px;
 }
@@ -203,6 +203,7 @@ h2 {
   .topbar {
     display: flex;
     gap: 20px;
+    padding: 20px
   }
 }
 .movie-background-box {
@@ -290,7 +291,7 @@ footer h4 {
   grid-column: 2 / span 1;
 }
 
-.right-bar .movie-list {
+.right-bar .inner-movie-list {
   display: flex;
   gap: 20px;
   flex-direction: row;
