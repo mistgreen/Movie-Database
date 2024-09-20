@@ -37,7 +37,7 @@ export default function SearchResults() {
             }
             
             const result = await response.json();
-            return Array.isArray(result.results) ? result.results : []; // Ensure result is an array
+            return Array.isArray(result.results) ? result.results : []; 
           } catch (error) {
             console.error("Error fetching data:", error);
             setError("An error occurred while fetching data. Please try again.");
@@ -88,7 +88,10 @@ export default function SearchResults() {
           {error && <p>{error}</p>} 
           {!isLoading && !error && searchResults.length === 0 && <p>No results found.</p>} 
           <div className="right-bar">
-            <MovieCardTest movies={searchResults} />
+            <Suspense>
+              <MovieCardTest movies={searchResults} />
+            </Suspense>
+            
           </div>
         </main>
       </GenreFilterContextProvider>
