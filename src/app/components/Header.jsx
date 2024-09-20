@@ -1,9 +1,11 @@
 import Link from "next/link";
 import NavBar from "./NavBar";
 import Search from "./Search";
+import { Suspense } from "react";
 
 export default function Header() {
     return (
+      <Suspense>
       <header>
         <div className="topbar">
           <div className="logo">
@@ -19,6 +21,7 @@ export default function Header() {
             <Search/>
           </div> 
       </header>
+      </Suspense>
     );
   }
   
