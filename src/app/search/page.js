@@ -5,7 +5,7 @@ import GenreFilterContextProvider from "../contexts/GenreFilterContext";
 import MovieCardTest from "../components/MovieCardTest";
 import Header from "../components/Header";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { fetchImdbId, fetchImdbRating } from "../services/apis";
 import { useSearchParams } from "next/navigation";
 
@@ -79,7 +79,8 @@ export default function SearchResults() {
   }, [query]);
 
   return (
-    <FavouritesContextProvider>
+    <Suspense fallback={<div>Loading...</div>}>
+      <FavouritesContextProvider>
       <GenreFilterContextProvider>
         <main className="search-page">
           <Header/>
@@ -93,5 +94,7 @@ export default function SearchResults() {
         </main>
       </GenreFilterContextProvider>
     </FavouritesContextProvider>
+    </Suspense>
+    
   );
 }
