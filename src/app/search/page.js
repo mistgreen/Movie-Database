@@ -84,15 +84,18 @@ export default function SearchResults() {
        
         <main className="search-page">
           
-          
+          <Suspense>
+            <Header/>
+          </Suspense>
           <h2>Search Results</h2>
           {isLoading && <p>Loading...</p>} 
           {error && <p>{error}</p>} 
           {!isLoading && !error && searchResults.length === 0 && <p>No results found.</p>} 
           <div className="right-bar">
             
+            <Suspense>
               <MovieCardTest movies={searchResults} />
-            
+              </Suspense>
             
           </div>
         </main>
