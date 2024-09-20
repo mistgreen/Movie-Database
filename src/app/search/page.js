@@ -84,9 +84,7 @@ export default function SearchResults() {
        
         <main className="search-page">
           
-          <Suspense>
-            <Header/>
-          </Suspense>
+          
           <h2>Search Results</h2>
           {isLoading && <p>Loading...</p>} 
           {error && <p>{error}</p>} 
