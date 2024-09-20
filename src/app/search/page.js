@@ -79,9 +79,10 @@ export default function SearchResults() {
   }, [query]);
 
   return (
+    <Suspense>
       <FavouritesContextProvider>
       <GenreFilterContextProvider>
-        <Suspense>
+       
         <main className="search-page">
           
           <Header/>
@@ -96,9 +97,9 @@ export default function SearchResults() {
             
           </div>
         </main>
-        </Suspense>
+    
       </GenreFilterContextProvider>
     </FavouritesContextProvider>
-    
+    </Suspense>
   );
 }
