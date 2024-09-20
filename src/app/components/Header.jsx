@@ -5,7 +5,6 @@ import { Suspense } from "react";
 
 export default function Header() {
     return (
-      <Suspense>
       <header>
         <div className="topbar">
           <div className="logo">
@@ -18,10 +17,11 @@ export default function Header() {
           
         </div>
         <div className="search-wrapper">
+          <Suspense>
             <Search/>
+          </Suspense>
           </div> 
       </header>
-      </Suspense>
     );
   }
   

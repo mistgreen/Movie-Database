@@ -79,13 +79,14 @@ export default function SearchResults() {
   }, [query]);
 
   return (
-    <Suspense>
       <FavouritesContextProvider>
       <GenreFilterContextProvider>
        
         <main className="search-page">
           
-          <Header/>
+          <Suspense>
+            <Header/>
+          </Suspense>
           <h2>Search Results</h2>
           {isLoading && <p>Loading...</p>} 
           {error && <p>{error}</p>} 
@@ -100,6 +101,5 @@ export default function SearchResults() {
     
       </GenreFilterContextProvider>
     </FavouritesContextProvider>
-    </Suspense>
   );
 }
