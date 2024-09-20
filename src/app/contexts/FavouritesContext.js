@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { favouriteMovieReducer } from "../reducers/favouriteMovieReducer";
 
 export const FavouritesContext = createContext();

@@ -1,13 +1,97 @@
+'use client';
+import Link from "next/link";
+import { useState, useEffect } from "react";
+
 export default function Search() {
-    return (
-        <div className="search-container">
-    <div className="search">
-      <div className="search-form">
-        <input type="text" />
-        <button>Search</button>
+  const [value, setValue] = useState("");
+  const [data, setData] = useState([]);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_ACCESS_TOKEN}`
+    }
+  };
+
+  useEffect(() => {
+    if (value) {
+      const delayDebounceFn = setTimeout(() => {
+        fetchData(value);
+      }, 300); 
+
+      return () => clearTimeout(delayDebounceFn);
+    } else {
+      setData([]); 
+    }
+  }, [value]);
+
+
+
+  const fetchData = async (query) => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      setData(Array.isArray(result.results) ? result.results.slice(0, 5) : []);
+      setError("");
+    } catch (error) {
+      setError("An error occurred while fetching data. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  return (
+    <div className="search-container">
+      <div className="search">
+        <div className="search-form">
+          <input 
+            type="text" 
+            placeholder="Type to search..." 
+            aria-label="Search"
+            onChange={onChange} 
+            value={value} 
+
+
+            
+          />
+          <Link href={`/search?query=${value}`}>
+            <button>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+              </svg>
+            </button>
+          </Link>
+        </div>
+
+        {value.length > 0 && (
+          <div className="drop-down">
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : data.length > 0 ? (
+              data.map((movie) => (
+                <div key={movie.id}>
+                  <Link href={`/${movie.id}`}>{movie.title}</Link>
+                </div>
+              ))
+            ) : (
+              <div>No results found</div>
+            )}
+          </div>
+        )}
       </div>
     </div>
-  </div>
-    );
-    
+  );
 }

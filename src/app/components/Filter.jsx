@@ -1,6 +1,5 @@
 import GenrePill from "./GenrePill";
 
-
 const options = {
     method: 'GET',
     headers: {
@@ -15,17 +14,18 @@ async function fetchGenres() {
       throw new Error('Failed to fetch genres');
     }
     let data = await response.json();
-    console.log(data.genres);
     return data.genres;
 }
 
 export default async function Filter() {
-    let genres = await fetchGenres();
-    return (
+  const genres = await fetchGenres(); 
+
+  return (
+
       <div className="genre-list">
         {genres.map((genre) => (
-          <GenrePill className="genre-pill" key={genre.id} {...genre}/>
+          <GenrePill className="genre-pill" key={genre.id} {...genre} />
         ))}
       </div>
-    );
-  }
+  );
+}
