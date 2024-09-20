@@ -1,6 +1,21 @@
+// 'use client' at the top to indicate this is a client component
 'use client';
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from 'next/navigation';
+
+function SearchResults() {
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query');
+
+  // Logic to display search results based on the query
+  return (
+    <div>
+      <h1>Search Results for: {query}</h1>
+      {/* Render search results here */}
+    </div>
+  );
+}
 
 export default function Search() {
   const [value, setValue] = useState("");
@@ -24,7 +39,7 @@ export default function Search() {
 
       return () => clearTimeout(delayDebounceFn);
     } else {
-      setData([]); 
+      setData([]);
     }
   }, [value]);
 
@@ -72,19 +87,9 @@ export default function Search() {
         </div>
 
         {value.length > 0 && (
-          <div className="drop-down">
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : data.length > 0 ? (
-              data.map((movie) => (
-                <div key={movie.id}>
-                  <Link href={`/${movie.id}`}>{movie.title}</Link>
-                </div>
-              ))
-            ) : (
-              <div>No results found</div>
-            )}
-          </div>
+          <Suspense fallback={<div>Loading...</div>}>
+            <SearchResults />
+          </Suspense>
         )}
       </div>
     </div>
