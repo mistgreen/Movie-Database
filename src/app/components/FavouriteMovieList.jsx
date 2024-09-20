@@ -11,7 +11,7 @@ export default function FavouriteMovieList ({ favourites = [] }) {
           <MovieCard className="movie-card" key={movie.id} {...movie}/>
         ))
       ) : (
-        <p>You haven't added any movies to your watchlist yet...</p>
+        <p>You haven&apos;t added any movies to your watchlist yet...</p>
       )}
     </div>
   );
