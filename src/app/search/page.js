@@ -90,7 +90,10 @@ export default function SearchResults() {
           <h2>Search Results</h2>
           {isLoading && <p>Loading...</p>} 
           {error && <p>{error}</p>} 
-          {!isLoading && !error && searchResults.length === 0 && <p>No results found.</p>} 
+          <Suspense>
+            {!isLoading && !error && searchResults.length === 0 && <p>No results found.</p>} 
+          
+          </Suspense>
           <div className="right-bar">
             
             <Suspense>
