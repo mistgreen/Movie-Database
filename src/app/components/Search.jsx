@@ -1,6 +1,6 @@
 'use client';
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 
 export default function Search() {
   const [value, setValue] = useState("");
@@ -54,6 +54,7 @@ export default function Search() {
   };
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div className="search-container">
       <div className="search">
         <div className="search-form">
@@ -93,5 +94,6 @@ export default function Search() {
         )}
       </div>
     </div>
+    </Suspense>
   );
 }
