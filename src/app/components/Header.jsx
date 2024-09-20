@@ -1,7 +1,6 @@
 import Link from "next/link";
 import NavBar from "./NavBar";
 import Search from "./Search";
-import { Suspense } from "react";
 
 export default function Header() {
     return (
@@ -17,9 +16,7 @@ export default function Header() {
           
         </div>
         <div className="search-wrapper">
-          <Suspense>
             <Search/>
-          </Suspense>
           </div> 
       </header>
     );
