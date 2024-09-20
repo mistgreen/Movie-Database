@@ -79,7 +79,6 @@ export default function SearchResults() {
   }, [query]);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
       <FavouritesContextProvider>
       <GenreFilterContextProvider>
         <main className="search-page">
@@ -94,7 +93,6 @@ export default function SearchResults() {
         </main>
       </GenreFilterContextProvider>
     </FavouritesContextProvider>
-    </Suspense>
     
   );
 }
