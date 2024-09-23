@@ -434,25 +434,41 @@ footer h4 {
   margin: 0;
 }
 
-
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+}
 .genre-pill {
-  background-color: #ddd;
+  background-color: #4e4e4e;
   border: none;
-  color: black;
+  color: rgb(255, 255, 255);
   padding: 5px 10px;
   height: auto;
   font-size: small;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .genre-pill.selected {
   background-color: red; /* Green background for selected state */
   color: white; /* White text color for selected state */
+}
+
+.genre-pill .checkmark {
+  width: 15px;
+  fill: #fff;
+  margin-left: 5px;
+}
+
+.genre-pill .plus {
+  width: 15px;
+  fill: #fff;
+  margin-left: 5px;
 }
 
 .movie-content {
