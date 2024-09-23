@@ -10,7 +10,7 @@ export default function Watchlist() {
           <div className="watchlist-header">
             <Header/>
           </div>
-          <div className="watchlist-right-bar">
+          <div className="right-bar">
             <Library/>
           </div>
           <div className="watchlist-footer">

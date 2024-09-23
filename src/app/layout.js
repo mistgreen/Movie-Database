@@ -1,6 +1,14 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
+import { Lato } from 'next/font/google'
+ 
+const lato = Lato({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 const poppins = Poppins({subsets: ["latin"], weight: ['400', '700']});
 
 export const metadata = {
@@ -11,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={lato.className}>
 
         {children}
       </body>
