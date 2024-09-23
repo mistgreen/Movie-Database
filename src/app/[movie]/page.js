@@ -24,14 +24,19 @@ export default async function Movie({params}) {
         return { ...movie, imdbRating };
       } catch (error) {
         console.error("Error fetching IMDb data:", error);
-        return { ...movie, imdbRating: "N/A" };
+        return { ...movie, imdbRating: "Not Available" };
       }
     })
   );
 
+  const imdbFormatter = (imdbRating) => {
+    return typeof(imdbRating) === "number" ? imdbRating.toFixed(1) : "Not available";
+  };
+
   const posterPath = movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : null;
   const backdropPath = movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : null;
   const releaseYear = formatDate(movie.release_date);
+  const formattedImdbRating = imdbFormatter(movie.imdbRating);
 
 
     return (
@@ -60,7 +65,7 @@ export default async function Movie({params}) {
               </div>
               <div className="movie-information">
               <h3>IMDB score</h3>
-              <p>{imdbRating}</p> 
+              <p>{formattedImdbRating}</p> 
               <div></div>
 
               </div>

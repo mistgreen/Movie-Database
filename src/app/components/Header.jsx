@@ -12,8 +12,6 @@ export default function Header() {
           <div className="nav-bar-wrapper">
           <NavBar/> 
           </div>
-          <div className="logo"></div>
-          
         </div>
         <div className="search-wrapper">
             <Search/>

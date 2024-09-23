@@ -21,6 +21,8 @@ async function fetchMovies(urlPath) {
   return data.results;
 };
 
+
+
 async function fetchImdbId(movieId) {
   if (!movieId) {
     throw new Error('movieId is required');

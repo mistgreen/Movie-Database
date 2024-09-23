@@ -28,7 +28,7 @@ export default function MovieListTest(urlPath) {
             return { ...movie, imdbRating };
           } catch (error) {
             console.error("Error fetching IMDb data:", error);
-            return { ...movie, imdbRating: "N/A" };
+            return { ...movie, imdbRating: "Not Available" };
           }
         })
       );

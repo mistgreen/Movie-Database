@@ -42,6 +42,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 20px;
 }
 
 .logo {
@@ -67,40 +68,189 @@ a {
   text-decoration: none;
 }
 
-.nav-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 30px;
-}
-
-.nav-container a {
-  text-decoration: none;
-  color: #9f9e9e;
-  font-weight: 700;
-  position: relative;
-}
-
-.nav-container a.active {
-  color: #fff; /* Highlight active link */
-  font-weight: bold;
-}
-
-.nav-container a::before {
-  content: '';
-  background-color: red;
-  position: absolute;
-  left: 0;
-  bottom: 3px;
+.search-wrapper {
   width: 100%;
-  height: 8px;
-  z-index: -1;
-  transition: all .3s ease-in-out;
+  padding: 0 20px;
 }
 
-.nav-container a:hover::before {
-  bottom: 0;
-  height: 100%;
+.search-container {
+  width: 100%;
+}
+
+.search input {
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  body {
+    padding: 50px;
+  }
+
+  .topbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav-bar-wrapper {
+    justify-self: flex-end;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger svg {
+    width: 15px;
+    fill: #fff;
+  }
+
+  .nav-links {
+    display: none;
+    right: 0;
+    /* top: 60px; */
+    background-color: #333;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.active {
+    display: flex;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 14px;
+    z-index: 1;
+    top: 100%;
+    width: 100vw;
+    margin-left: -81vw;
+    left: -100%;
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+
+  .nav-links a {
+    color: #9f9e9e;
+    text-decoration: none;
+  }
+
+  .nav-links a.active {
+    color: #fff; /* Highlight active link */
+    font-weight: bold;
+  }
+  
+}
+
+/* Medium devices */ 
+@media (min-width: 768px) and (max-width: 1023px) { 
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between; /* Ensures space between logo and nav links */
+    align-items: center; /* Vertically center items */
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 30px; /* Space between each link */
+    justify-content: center; /* Centers the links */
+    align-items: center;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #9f9e9e;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .nav-links a.active {
+    color: #fff; /* Highlight active link */
+    font-weight: bold;
+  }
+  
+  .nav-links a::before {
+    content: '';
+    background-color: red;
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 8px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+  }
+  
+  .nav-container a:hover::before {
+    bottom: 0;
+    height: 100%;
+  }
+}
+
+
+/*laptops*/
+@media (min-width: 1024px) {
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #9f9e9e;
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .nav-links a.active {
+    color: #fff; /* Highlight active link */
+    font-weight: bold;
+  }
+  
+  .nav-links a::before {
+    content: '';
+    background-color: red;
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    width: 100%;
+    height: 8px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+  }
+  
+  .nav-container a:hover::before {
+    bottom: 0;
+    height: 100%;
+  }
 }
 
 .search-wrapper {
@@ -138,7 +288,7 @@ a {
   align-items: center;
   border-radius: 8px;
   padding: 12px;
-  width: 500px;
+  /* width: 500px; */
 }
 
 .search input:focus {
@@ -207,13 +357,7 @@ h2 {
   object-fit: contain;
   border-radius: 10px;
 }
-@media (min-width: 600px) {
-  .topbar {
-    display: flex;
-    gap: 20px;
-    padding: 20px
-  }
-}
+
 .movie-background-box {
   position: absolute;
   top: 100%;
