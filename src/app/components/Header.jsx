@@ -7,7 +7,7 @@ export default function Header() {
       <header>
         <div className="topbar">
           <div className="logo">
-            <Link href="/" className="logo">MOVIES</Link> 
+            <Link href="/" className="logo">WATCHOUT</Link> 
           </div>
           <div className="nav-bar-wrapper">
           <NavBar/> 

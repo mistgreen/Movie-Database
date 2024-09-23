@@ -60,7 +60,7 @@ export default function Search() {
         <div className="search-form">
           <input 
             type="text" 
-            placeholder="Type to search..." 
+            placeholder="Search for a movie..." 
             aria-label="Search"
             onChange={onChange} 
             value={value} 
