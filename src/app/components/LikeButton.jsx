@@ -1,23 +1,32 @@
 'use client';
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FavouritesContext } from "../contexts/FavouritesContext";
+import Alert from "./Alert";
 
 export default function LikeButton(movie) {
   const { favouriteMovies, dispatch } = useContext(FavouritesContext);
+
+  const [alertMessage, setAlertMessage] = useState(null);
 
     const isFavourite = Array.isArray(favouriteMovies) ? favouriteMovies.some(fav => fav.movie.id === movie.id) : false;
 
     const handleClick = () => {
       if (isFavourite) {
-        dispatch({type: 'REMOVE_FAVOURITE', id: movie.id})
+        setAlertMessage('Removed from watchlist');
+        dispatch({type: 'REMOVE_FAVOURITE', id: movie.id});
       } else {
-        dispatch({type: 'ADD_FAVOURITE', movie
-        })
+
+        setAlertMessage('Added to watchlist');
+        dispatch({type: 'ADD_FAVOURITE', movie});
       }
+  
+      setTimeout(() => {
+        setAlertMessage(null);
+      }, 1000);
     };
   
-    return (
+    return (<div>
       <button 
       className={`like-button ${isFavourite ? 'favourited' : ''}`}
       onClick={handleClick}>
@@ -30,5 +39,9 @@ export default function LikeButton(movie) {
           </svg>
       }
       </button>
+      
+      
+        {alertMessage && <Alert message={alertMessage} />}
+      </div>
     );
 }
