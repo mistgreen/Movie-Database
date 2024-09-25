@@ -41,3 +41,13 @@ export async function fetchRecommendations(id) {
     const data = await response.json();
     return data.results;
   }
+
+  export async function fetchAllMovieData(id) {
+    let url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=credits%2Cwatch%2Fproviders%2Cexternal_ids%2Crecommendations&language=en-US`;
+    let response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error('Failed to get all movie data');
+    }
+    const data = await response.json();
+    return data;
+  }
