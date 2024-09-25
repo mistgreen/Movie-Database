@@ -3,7 +3,7 @@ import Link from "next/link";
 import formatDate from "../helpers/dateFormatter";
 
 export default function MovieCard(props) {
-  const posterPath = props.poster_path ? `https://image.tmdb.org/t/p/w500/${props.poster_path}` : null;
+  const posterPath = props.poster_path ? `https://image.tmdb.org/t/p/w500/${props.poster_path}` : `./placeholder.jpeg`;
   const releaseYear = formatDate(props.release_date);
 
 

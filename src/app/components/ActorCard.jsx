@@ -1,6 +1,6 @@
 
 export default function ActorCard(props) {
-  const actorImage = props.profile_path ? `https://image.tmdb.org/t/p/w500/${props.profile_path}` : null;
+  const actorImage = props.profile_path ? `https://image.tmdb.org/t/p/w500/${props.profile_path}` : './person-placeholder.jpeg';
   return (
     <div key={props.id} className="actor-card">
       <div className="actor-card-wrapper">
